@@ -13,7 +13,20 @@ const options = {
     // ...add more providers here
   ],
   // A database is optional, but required to persist accounts in a database
-  database: process.env.DATABASE_URL,
+  database: {
+    type: "postgres",
+    host: process.env.HOST,
+    port: process.env.PORT,
+    username: process.env.USERNAME,
+    password: process.env.PASSWORD,
+    database: process.env.DB,
+    ssl: true,
+    extra: {
+      ssl: {
+        rejectUnauthorized: false,
+      },
+    },
+  },
   callbacks: {
     session: async (session, user) => {
       // console.log(session);
@@ -26,7 +39,7 @@ const options = {
       }
 
       return Promise.resolve(session);
-    }
+    },
   },
 };
 
