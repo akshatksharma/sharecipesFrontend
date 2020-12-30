@@ -1,5 +1,4 @@
-import { useState, useEffect, useContext } from "react";
-import { useSession } from "next-auth/client";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import Nav from "../components/nav";
 import Layout from "../components/layout";
@@ -10,7 +9,7 @@ export default function IndexPage() {
   const [categories, setCategories] = useState([]);
   const [allRecipes, setAllRecipes] = useState([]);
   const [recipes, setRecipes] = useState([]);
-  const [session, loading] = useSession();
+
 
   const getRecipes = async () => {
     const res = await fetch(`${process.env.BACKEND_URL}/api/recipes`, {
