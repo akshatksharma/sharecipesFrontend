@@ -52,10 +52,15 @@ export default function Recipe({ recipeData }) {
         <div className="flex flex-row-reverse w-full mb-6">
           {session && (
             <>
-              {isFavorite ? (
-                <button className="btn-red" onClick={unFav}>Unfav</button>
-              ) : (
-                <button className="btn-blue" onClick={addFav}>Fav</button>
+              {isFavorite === true && (
+                <button className="btn-red" onClick={unFav}>
+                  Unfav
+                </button>
+              )}
+              {isFavorite === false && (
+                <button className="btn-blue" onClick={addFav}>
+                  Fav
+                </button>
               )}
             </>
           )}
