@@ -28,15 +28,15 @@ export default function Profile({ profileData }) {
     <>
       <Nav></Nav>
       {session && (
-        <div className="flex items-center mb-8 p-4 bg-gray-300">
+        <div className="flex flex-col sm:flex-row sm:justify-center items-center mb-8 p-4">
           <img
-            className="w-1/2 h-auto rounded-full mr-6 "
+            className="w-1/3 max-w-xs h-auto rounded-full mb-4 sm:mr-6 "
             referrerPolicy="no-referrer"
             src={session.user.image}
             alt="User profile picture"
           />
           <div className="break-all flex flex-col justify-center">
-            <h2>Name</h2>
+            {/* <h2>Name</h2> */}
             <h1 className="font-bold text-lg">{session.user.name}</h1>
             {/* <h2>Email</h2> */}
             {/* <h1 className="font-bold text-lg">{session.user.email}</h1> */}

@@ -9,27 +9,27 @@ export default function Nav() {
 
   return (
     <nav className="h-16 m-8 mt-4">
-      <div className="flex justify-between items-center">
+      <div className="flex justify-between items-center h-full">
         <div>
           <Link href="/">
             <a className="text-blue-500 no-underline ">Home</a>
           </Link>
         </div>
-        <div className="flex justify-between items-center space-x-4">
-          <div>
+        <div className="flex justify-between items-center space-x-4 h-full">
+          <>
             {!session && (
               <button className="btn-blue no-underline" onClick={signIn}>
                 Login
               </button>
             )}
             {session && (
-              <div className="flex justify-end">
+              <div className="flex justify-end items-center h-full">
                 <Link
                   href={`/profile/${session.user.id}`}
                   className="btn-blue no-underline"
                 >
                   <img
-                    className="w-1/12 h-full rounded-full mr-4"
+                    className="w-auto h-7/10 rounded-full mr-4"
                     referrerPolicy="no-referrer"
                     src={session.user.image}
                     alt="User profile picture"
@@ -43,7 +43,7 @@ export default function Nav() {
                 </button>
               </div>
             )}
-          </div>
+          </>
         </div>
       </div>
     </nav>
