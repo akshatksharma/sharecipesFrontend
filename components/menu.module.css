@@ -1,0 +1,38 @@
+.menu {
+  padding: 1rem;
+  background: #282828;
+  color: #f5f6f7;
+
+  width: 100vw;
+  height: 50vh;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  transition: transform 0.3s cubic-bezier(0, 0.52, 0, 1);
+  overflow: scroll;
+  z-index: 1000;
+}
+
+.menuButton {
+  background: none;
+  border: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  cursor: pointer;
+  fill: #ced4de;
+  transition: all 0.2s ease-in-out;
+}
+
+.false {
+  transform: translate3d(0, 100vh, 0);
+}
+
+.true {
+  transform: translate3d(0, 0vh, 0);
+  overflow: hidden;
+}
