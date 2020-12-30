@@ -1,4 +1,6 @@
 import { useState, useEffect } from "react";
+import { useSession } from "next-auth/client";
+
 import Link from "next/link";
 import Nav from "../components/nav";
 import Layout from "../components/layout";
@@ -9,6 +11,7 @@ export default function IndexPage() {
   const [categories, setCategories] = useState([]);
   const [allRecipes, setAllRecipes] = useState([]);
   const [recipes, setRecipes] = useState([]);
+  const [session, loading] = useSession();
 
   const getRecipes = async () => {
     const res = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/recipes`, {
@@ -136,9 +139,11 @@ export default function IndexPage() {
         <div className="flex flex-row justify-between w-full mb-6">
           <h1 className="text-3xl font-bold">Recipes</h1>
           <div className="flex flex-row items-center">
-            <Link href={"/create"}>
-              <button className="btn-blue h-10 mr-2">Add</button>
-            </Link>
+            {session && (
+              <Link href={"/create"}>
+                <button className="btn-blue h-10 mr-2">Add</button>
+              </Link>
+            )}
             <button className="btn-blue h-10" onClick={toggleMenu}>
               Filter
             </button>

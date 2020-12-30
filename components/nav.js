@@ -8,12 +8,11 @@ export default function Nav() {
   console.log(session);
 
   return (
-    <nav>
-      <div className="flex justify-between items-center p-8 pt-4">
+    <nav className="h-16 m-8 mt-4">
+      <div className="flex justify-between items-center">
         <div>
           <Link href="/">
             <a className="text-blue-500 no-underline ">Home</a>
-            
           </Link>
         </div>
         <div className="flex justify-between items-center space-x-4">
@@ -30,13 +29,16 @@ export default function Nav() {
                   className="btn-blue no-underline"
                 >
                   <img
-                    className="w-1/5 h-auto rounded-full mr-4"
+                    className="w-1/12 h-full rounded-full mr-4"
                     referrerPolicy="no-referrer"
                     src={session.user.image}
                     alt="User profile picture"
                   />
                 </Link>
-                <button className="btn bg-gray-500 no-underline" onClick={signOut}>
+                <button
+                  className="btn bg-gray-500 no-underline"
+                  onClick={signOut}
+                >
                   Logout
                 </button>
               </div>
