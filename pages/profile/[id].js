@@ -46,13 +46,17 @@ export default function Profile({ profileData }) {
       <Layout>
         <div className="w-full mb-6">
           <h2 className="text-lg font-bold mb-2">Favorite Recipes</h2>
-          {userFavRecipes.map((recipe) => (
-            <Link key={recipe.id} href={`/recipe/${recipe.id}`}>
-              <div className="flex flex-col-reverse h-24 p-4 mb-4 border rounded bg-gray-200 ">
-                <h2 className="font-bold text-gray-700">{recipe.title}</h2>
-              </div>
-            </Link>
-          ))}
+          {userFavRecipes.map((recipe) => {
+            if (recipe) {
+              return (
+                <Link key={recipe.id} href={`/recipe/${recipe.id}`}>
+                  <div className="flex flex-col-reverse h-24 p-4 mb-4 border rounded bg-gray-200 ">
+                    <h2 className="font-bold text-gray-700">{recipe.title}</h2>
+                  </div>
+                </Link>
+              );
+            }
+          })}
         </div>
         <div className="w-full ">
           <h2 className="text-lg font-bold mb-2">My recipes</h2>
