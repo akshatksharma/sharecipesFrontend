@@ -10,9 +10,8 @@ export default function IndexPage() {
   const [allRecipes, setAllRecipes] = useState([]);
   const [recipes, setRecipes] = useState([]);
 
-
   const getRecipes = async () => {
-    const res = await fetch(`${process.env.BACKEND_URL}/api/recipes`, {
+    const res = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/recipes`, {
       method: "GET",
     });
     if (!res.ok) console.log("failure");
@@ -23,9 +22,12 @@ export default function IndexPage() {
   };
 
   const getCategories = async () => {
-    const res = await fetch(`${process.env.BACKEND_URL}/recipes/parameters`, {
-      method: "GET",
-    });
+    const res = await fetch(
+      `${process.env.NEXT_PUBLIC_BACKEND_URL}/recipes/parameters`,
+      {
+        method: "GET",
+      }
+    );
     if (!res.ok) console.log("failure");
     const data = await res.json();
 
