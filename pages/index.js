@@ -13,7 +13,7 @@ export default function IndexPage() {
   const [session, loading] = useSession();
 
   const getRecipes = async () => {
-    const res = await fetch("http://localhost:5000/api/recipes", {
+    const res = await fetch(`${process.env.BACKEND_URL}/api/recipes`, {
       method: "GET",
     });
     if (!res.ok) console.log("failure");
@@ -24,7 +24,7 @@ export default function IndexPage() {
   };
 
   const getCategories = async () => {
-    const res = await fetch("http://localhost:5000/api/recipes/parameters", {
+    const res = await fetch(`${process.env.BACKEND_URL}/recipes/parameters`, {
       method: "GET",
     });
     if (!res.ok) console.log("failure");
